@@ -1,0 +1,387 @@
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      akseeversion: 1.6.384.0
+      csi.volume.kubernetes.io/nodeid: '{"secrets-store.csi.k8s.io":"casevaip21casp-ledge"}'
+      etcd.k3s.cattle.io/node-address: 192.168.0.2
+      etcd.k3s.cattle.io/node-name: casevaip21casp-ledge-f0da1150
+      flannel.alpha.coreos.com/backend-data: '{"VNI":4096,"VtepMAC":"ce:d7:cb:41:30:b5"}'
+      flannel.alpha.coreos.com/backend-type: vxlan
+      flannel.alpha.coreos.com/kube-subnet-manager: 'true'
+      flannel.alpha.coreos.com/public-ip: 192.168.0.2
+      k3s.io/hostname: casevaip21casp-ledge
+      k3s.io/internal-ip: 192.168.0.2
+      k3s.io/node-args: '["server","--kubelet-arg","volume-plugin-dir=/var/lib/libexec/kubernetes/kubelet-plugins/volume/exec/","--write-kubeconfig-mode","644","--disable","local-storage","--disable","traefik","--disable","metrics-server","--disable","servicelb","--cluster-cidr","10.42.0.0/16","--service-cidr","10.43.0.0/16","--service-node-port-range","30000-32767","--disable-network-policy","true","--system-default-registry","aksiotdevacr.azurecr.io","--kube-controller-arg","flex-volume-plugin-dir=/var/lib/libexec/kubernetes/kubelet-plugins/volume/exec/","--flannel-conf","/opt/.aksedge/config/k3s/flannel-conf.json","--tls-san","192.168.0.2","--cluster-init","true","--config","/var/.eflow/config/k3s/k3s-config.yml"]'
+      k3s.io/node-config-hash: SFZUUR5ZCEKELYF3LJHRIV66NNTWUCEFTBFLL7IRYOEQVDLYOIXA====
+      k3s.io/node-env: '{"K3S_DATA_DIR":"/var/lib/rancher/k3s/data/a33bd5c78b6ed8b2dc1ea762871f8c23062233f484952601748e0b23fb72ec16","K3S_SERVER_ARGS":"''--config''\n''/var/.eflow/config/k3s/k3s-config.yml''"}'
+      node.aksedge.io/distro: aks_edge_k3s
+      node.aksedge.io/hostid: Pq1GO6rbtUew5H+GdKX7NbUbQbNVqb2Q4zpUU59D4Cs=
+      node.aksedge.io/infra: Windows Server 2019 Standard
+      node.alpha.kubernetes.io/ttl: '0'
+      volumes.kubernetes.io/controller-managed-attach-detach: 'true'
+    creationTimestamp: '2024-03-21T13:25:02+00:00'
+    finalizers:
+    - wrangler.cattle.io/managed-etcd-controller
+    - wrangler.cattle.io/node
+    labels:
+      beta.kubernetes.io/arch: amd64
+      beta.kubernetes.io/instance-type: k3s
+      beta.kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+      kubernetes.io/hostname: casevaip21casp-ledge
+      kubernetes.io/os: linux
+      node-role.kubernetes.io/control-plane: 'true'
+      node-role.kubernetes.io/etcd: 'true'
+      node-role.kubernetes.io/master: 'true'
+      node.kubernetes.io/instance-type: k3s
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:k3s.io/hostname: {}
+            f:k3s.io/internal-ip: {}
+            f:k3s.io/node-args: {}
+            f:k3s.io/node-config-hash: {}
+            f:k3s.io/node-env: {}
+            f:node.alpha.kubernetes.io/ttl: {}
+            f:volumes.kubernetes.io/controller-managed-attach-detach: {}
+          f:labels:
+            .: {}
+            f:beta.kubernetes.io/arch: {}
+            f:beta.kubernetes.io/instance-type: {}
+            f:beta.kubernetes.io/os: {}
+            f:kubernetes.io/arch: {}
+            f:kubernetes.io/hostname: {}
+            f:kubernetes.io/os: {}
+            f:node.kubernetes.io/instance-type: {}
+        f:spec:
+          f:podCIDR: {}
+          f:podCIDRs:
+            .: {}
+            v:"10.42.0.0/24": {}
+          f:providerID: {}
+      manager: k3s
+      operation: Update
+      time: '2024-03-21T13:25:02+00:00'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:etcd.k3s.cattle.io/node-address: {}
+            f:etcd.k3s.cattle.io/node-name: {}
+          f:finalizers:
+            .: {}
+            v:"wrangler.cattle.io/managed-etcd-controller": {}
+            v:"wrangler.cattle.io/node": {}
+          f:labels:
+            f:node-role.kubernetes.io/control-plane: {}
+            f:node-role.kubernetes.io/etcd: {}
+            f:node-role.kubernetes.io/master: {}
+      manager: k3s-supervisor@casevaip21casp-ledge
+      operation: Update
+      time: '2024-03-21T13:25:02+00:00'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:akseeversion: {}
+            f:node.aksedge.io/distro: {}
+            f:node.aksedge.io/hostid: {}
+            f:node.aksedge.io/infra: {}
+      manager: kubectl-annotate
+      operation: Update
+      time: '2024-03-21T13:25:11+00:00'
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:csi.volume.kubernetes.io/nodeid: {}
+            f:flannel.alpha.coreos.com/backend-data: {}
+            f:flannel.alpha.coreos.com/backend-type: {}
+            f:flannel.alpha.coreos.com/kube-subnet-manager: {}
+            f:flannel.alpha.coreos.com/public-ip: {}
+        f:status:
+          f:conditions:
+            k:{"type":"DiskPressure"}:
+              f:lastHeartbeatTime: {}
+            k:{"type":"MemoryPressure"}:
+              f:lastHeartbeatTime: {}
+            k:{"type":"PIDPressure"}:
+              f:lastHeartbeatTime: {}
+            k:{"type":"Ready"}:
+              f:lastHeartbeatTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+          f:images: {}
+      manager: k3s
+      operation: Update
+      subresource: status
+      time: '2024-03-22T18:15:28+00:00'
+    name: casevaip21casp-ledge
+    resourceVersion: '865855'
+    uid: 890fe33e-c304-4519-8ae5-b336f9c2dac4
+  spec:
+    podCIDR: 10.42.0.0/24
+    podCIDRs:
+    - 10.42.0.0/24
+    providerID: k3s://casevaip21casp-ledge
+  status:
+    addresses:
+    - address: 192.168.0.2
+      type: InternalIP
+    - address: casevaip21casp-ledge
+      type: Hostname
+    allocatable:
+      cpu: '8'
+      ephemeral-storage: '40147148564'
+      hugepages-1Gi: '0'
+      hugepages-2Mi: '0'
+      memory: 16313224Ki
+      pods: '110'
+    capacity:
+      cpu: '8'
+      ephemeral-storage: 41269684Ki
+      hugepages-1Gi: '0'
+      hugepages-2Mi: '0'
+      memory: 16313224Ki
+      pods: '110'
+    conditions:
+    - lastHeartbeatTime: '2024-03-22T18:15:28+00:00'
+      lastTransitionTime: '2024-03-21T13:25:02+00:00'
+      message: kubelet has sufficient memory available
+      reason: KubeletHasSufficientMemory
+      status: 'False'
+      type: MemoryPressure
+    - lastHeartbeatTime: '2024-03-22T18:15:28+00:00'
+      lastTransitionTime: '2024-03-21T13:25:02+00:00'
+      message: kubelet has no disk pressure
+      reason: KubeletHasNoDiskPressure
+      status: 'False'
+      type: DiskPressure
+    - lastHeartbeatTime: '2024-03-22T18:15:28+00:00'
+      lastTransitionTime: '2024-03-21T13:25:02+00:00'
+      message: kubelet has sufficient PID available
+      reason: KubeletHasSufficientPID
+      status: 'False'
+      type: PIDPressure
+    - lastHeartbeatTime: '2024-03-22T18:15:28+00:00'
+      lastTransitionTime: '2024-03-21T13:25:02+00:00'
+      message: kubelet is posting ready status. AppArmor enabled
+      reason: KubeletReady
+      status: 'True'
+      type: Ready
+    daemonEndpoints:
+      kubeletEndpoint:
+        Port: 10250
+    images:
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/amacoreagentaot@sha256:45150f482ce869f598aece991be9162073fc415ac0cf00f9d45edf89b7306280
+      - linuxgeneva-microsoft.azurecr.io/amacoreagentaot:1.2.47
+      sizeBytes: 288066056
+    - names:
+      - aksiotdevacr.azurecr.io/calico/node:v3.26.3
+      sizeBytes: 241909875
+    - names:
+      - aksiotdevacr.azurecr.io/microsoft/aksedge-billing:v1.0.0
+      sizeBytes: 213375179
+    - names:
+      - aksiotdevacr.azurecr.io/calico/cni:v3.26.3
+      sizeBytes: 208945158
+    - names:
+      - aksiotdevacr.azurecr.io/microsoft/marinerandethtool:v1.0.0
+      sizeBytes: 199581922
+    - names:
+      - aksiotdevacr.azurecr.io/kube-vip/kube-vip-cloud-provider:v0.0.2
+      sizeBytes: 178487599
+    - names:
+      - mcr.microsoft.com/azureiotoperations/aio-orc-api@sha256:73a57b2c3ae3648ea66e7fc507fe0b1a04752466133bda5169b37f1e5d417a59
+      - mcr.microsoft.com/azureiotoperations/aio-orc-api:official-20240113.1
+      sizeBytes: 162777239
+    - names:
+      - aksiotdevacr.azurecr.io/rancher/klipper-lb:v0.4.0
+      sizeBytes: 133005567
+    - names:
+      - mcr.microsoft.com/oss/mirror/docker.io/library/telegraf@sha256:6da22989781e7dfadee6a4bac374092aa67cad90ebeeb3b19fcb99c57d2a9f2b
+      - mcr.microsoft.com/oss/mirror/docker.io/library/telegraf:1.21
+      sizeBytes: 127460156
+    - names:
+      - aksiotdevacr.azurecr.io/rancher/local-path-provisioner:v0.0.23
+      sizeBytes: 111086241
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdsd@sha256:7dfc349e292f65a6f2305a62d3073a70d53e931224a4e9d5e7034a284dc6d63c
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdsd:mariner_20240125.2
+      sizeBytes: 109961696
+    - names:
+      - aksiotdevacr.azurecr.io/calico/kube-controllers:v3.26.3
+      sizeBytes: 74378168
+    - names:
+      - mcr.microsoft.com/azureiotoperations/project-akri/akri/agent@sha256:82227049e16a5d38b94de56a0994e4821b1eaf9b24b2caa1046c010e0645a2ec
+      - mcr.microsoft.com/azureiotoperations/project-akri/akri/agent:v0.12.12-dev79
+      sizeBytes: 70204044
+    - names:
+      - aksiotdevacr.azurecr.io/calico/ctl:v3.26.3
+      sizeBytes: 65123676
+    - names:
+      - mcr.microsoft.com/oss/kubernetes-csi/secrets-store/driver@sha256:7e574228e7b5102d0a9530d7743be7521e27c7c080d6f7cbed6c262903980367
+      - mcr.microsoft.com/oss/kubernetes-csi/secrets-store/driver:v1.4.0
+      sizeBytes: 63089145
+    - names:
+      - mcr.microsoft.com/oss/otel/opentelemetry-collector-contrib@sha256:01d9c9ec0959166ff6a45a2bd87b2ee78a91604d590fa36e0313c9087af39cfc
+      - mcr.microsoft.com/oss/otel/opentelemetry-collector-contrib:0.91.0-linux-amd64
+      sizeBytes: 61808464
+    - names:
+      - mcr.microsoft.com/azureiotoperations/aio-orc-k8s@sha256:ab4fbf9ae8d3eaa481ee566c2714cffe1d774d9a3eb8afd46989e76d3cebbcf1
+      - mcr.microsoft.com/azureiotoperations/aio-orc-k8s:official-20240113.1
+      sizeBytes: 54010184
+    - names:
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-cmctl@sha256:d40355617e79dce7f8ab829ee5fa2921550718e10b668f152d749b248460ae92
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-cmctl:1.11.2
+      sizeBytes: 53157654
+    - names:
+      - aksiotdevacr.azurecr.io/rancher/mirrored-coredns-coredns:1.10.1
+      sizeBytes: 53025139
+    - names:
+      - mcr.microsoft.com/azureiotoperations/project-akri/akri/webhook-configuration@sha256:526df39dc4c7de2c40d05c9120811505d68a8ed90e80a890295b544291602c10
+      - mcr.microsoft.com/azureiotoperations/project-akri/akri/webhook-configuration:v0.12.12-dev79
+      sizeBytes: 52840607
+    - names:
+      - mcr.microsoft.com/azurearck8s/clusterdiagnosticchecks@sha256:5ff5e423ed7892671b2d973eca09c424fe625a1d1b8663ff8f9d3964f5f53a2d
+      - mcr.microsoft.com/azurearck8s/clusterdiagnosticchecks:v0.1.1
+      sizeBytes: 51803604
+    - names:
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-controller@sha256:195fd8395c51a5a568c49ff19a4d911449d55b798a8de8d33df2fc77fcd024e7
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-controller:1.11.2
+      sizeBytes: 49357567
+    - names:
+      - mcr.microsoft.com/oss/kubernetes/kubectl@sha256:4a13081e9e2cb6b0e40e5738d74eb71cc492668961ae5551212d7f6a06d74827
+      - mcr.microsoft.com/oss/kubernetes/kubectl:v1.25.4
+      sizeBytes: 46853370
+    - names:
+      - mcr.microsoft.com/oss/kubernetes/kubectl@sha256:ab90be8b6d63b047a1c3a6665ed30d1958654bbb55363d790afd2fa270b761b8
+      - mcr.microsoft.com/oss/kubernetes/kubectl:v1.25.3
+      sizeBytes: 46272461
+    - names:
+      - mcr.microsoft.com/oss/kubernetes/kubectl@sha256:0b6e5e0a0cd11710ad6a946d3bc0124272bc3647c2e18662a267d1b3d981395a
+      - mcr.microsoft.com/oss/kubernetes/kubectl:v1.25.10
+      sizeBytes: 46267353
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/clusterconnect-agent@sha256:ad657dda5ce239415104c9f3bfc8c997d346673dbf698e42d35511b232f7510b
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/clusterconnect-agent:1.1.79-arcgateway
+      sizeBytes: 45825357
+    - names:
+      - mcr.microsoft.com/azurearck8s/clusterconnect-agent@sha256:76052f05c47c17d99069b05758bba7de0cfe1010f21a462b218cc8504d9516ec
+      - mcr.microsoft.com/azurearck8s/clusterconnect-agent:1.15.3
+      sizeBytes: 45824805
+    - names:
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-webhook@sha256:9c6ce28a1755b23a04b6d4f74f3586bab4a78a87a049ac42fa4c8ac64a01519b
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-webhook:1.11.2
+      sizeBytes: 45185472
+    - names:
+      - mcr.microsoft.com/azurearck8s/fluent-bit-collector@sha256:cfb7619c3032ec3c00b5b575e361045e3a7186365246625fc38675548dafef7d
+      - mcr.microsoft.com/azurearck8s/fluent-bit-collector:1.15.3
+      sizeBytes: 45121759
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/fluent-bit-collector@sha256:9d6a3643ad59c082bbae55e5bebd946f54dfb92391ba97927cbde13be2089abf
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/fluent-bit-collector:1.1.79-arcgateway
+      sizeBytes: 45120336
+    - names:
+      - mcr.microsoft.com/azureiotoperations/dataprocessor_operator@sha256:8a8e238b0c9d178ca8c0126037ae5f336d3ccca30e915dcb5174010fa940a265
+      - mcr.microsoft.com/azureiotoperations/dataprocessor_operator:0.2.0-preview.68
+      sizeBytes: 44653303
+    - names:
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-cainjector@sha256:f7fd5a3df9c75bdd0e501c4032e4d6d467360bc40b3cb173772374b86280888d
+      - mcr.microsoft.com/cbl-mariner/base/cert-manager-cainjector:1.11.2
+      sizeBytes: 43421364
+    - names:
+      - mcr.microsoft.com/azureiotoperations/refdata_store@sha256:0469aa8ee5401f76b67b9766cb4c92b5266a0161d9705f4809a30b3316f590f8
+      - mcr.microsoft.com/azureiotoperations/refdata_store:0.2.0-preview.68
+      sizeBytes: 42617160
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevafluentd_td-agent@sha256:e9aff8cc5f50300e1436ff2639847e9137e458030ffce33503b7aa11c7a14b49
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevafluentd_td-agent:mariner_20230915.3
+      sizeBytes: 42575097
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevafluentd_td-agent@sha256:3691137384ae99729ae80a85fbd1a1fb7f7a018f58c7c560e448da9d8f78593b
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevafluentd_td-agent:mariner_20240116.2
+      sizeBytes: 42252538
+    - names:
+      - aksiotdevacr.azurecr.io/kube-vip:0.4.4
+      sizeBytes: 37712324
+    - names:
+      - mcr.microsoft.com/azurearck8s/msi-adapter@sha256:fa218cda63ef9edde816f6b83ec28859b829ecdd1bae28f088327b468c6b9159
+      - mcr.microsoft.com/azurearck8s/msi-adapter:1.0.6
+      sizeBytes: 33315034
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/fluent-bit@sha256:912f1e7a0bbddbd67cfe32793c91f7320dcbd4cd6acbd909c6303070fd3d7362
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/fluent-bit:1.1.79-arcgateway
+      sizeBytes: 31794695
+    - names:
+      - mcr.microsoft.com/azurearck8s/fluent-bit@sha256:af0a9978b99e707eac5a8fa1d471fec6db916b0d911be5b0d0e1a321278a87fd
+      - mcr.microsoft.com/azurearck8s/fluent-bit:1.15.3
+      sizeBytes: 31794693
+    - names:
+      - mcr.microsoft.com/azurearck8s/msi-adapter@sha256:e96ed3fa12e2332cb29183616243c5dd565b1f16c82317a163524bd0818aabaf
+      - mcr.microsoft.com/azurearck8s/msi-adapter:1.0.5
+      sizeBytes: 31086136
+    - names:
+      - mcr.microsoft.com/azurearck8s/msi-adapter@sha256:27b0bb5201202cb3f55c3626d2065c3cc3e71018a379280a8274340ffc1d514a
+      - mcr.microsoft.com/azurearck8s/msi-adapter:1.0.4
+      sizeBytes: 30962983
+    - names:
+      - mcr.microsoft.com/azurearck8s/configoperator@sha256:d5fe74e6737347666f361c98e80e72739fd9ec43313faa665462597fab15cc2b
+      - mcr.microsoft.com/azurearck8s/configoperator:1.15.3
+      sizeBytes: 25030922
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/configoperator@sha256:2614e2f6776ad53dc38f802f7736a2df8b43056cc6eea4ca3442fdee427cdd7f
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/configoperator:1.1.79-arcgateway
+      sizeBytes: 25017752
+    - names:
+      - mcr.microsoft.com/azurearck8s/extensionoperator@sha256:e7bd797c050ad6d8ed355e2401477ac6c4241f6cc4ffb866281770a764a5b50b
+      - mcr.microsoft.com/azurearck8s/extensionoperator:1.15.3
+      sizeBytes: 24876148
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/extensionoperator@sha256:913a99f3ffbc1bbddfa73df748c3ef54c21fba892d854389aad731e26571a852
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/extensionoperator:1.1.79-arcgateway
+      sizeBytes: 24857054
+    - names:
+      - mcr.microsoft.com/azurearck8s/config-agent@sha256:00ec96703db325af9cc49bdfc24a04e85cdf29c75f4f1535ccef4d6cc259f6e3
+      - mcr.microsoft.com/azurearck8s/config-agent:1.15.3
+      sizeBytes: 24220389
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/config-agent@sha256:cddbc733b714c3e2235bef836280134462a2c4f4c51540ea29553b876fb80b3a
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/config-agent:1.1.79-arcgateway
+      sizeBytes: 24203228
+    - names:
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/kube-aad-proxy@sha256:d8bd16ce5d8e4cf3c1e24b0e0832e0d54457e1b792ada1d2555b3e06e3dd691a
+      - azurearcfork8sdev.azurecr.io/canary/arcgateway/kube-aad-proxy:1.1.79-arcgateway
+      sizeBytes: 23940424
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdm@sha256:46d7d5a0538e5831929aa51df00d5ac792cfacbb53e037264e385fd30c01c943
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdm:2.2024.126.1948-f97e1f-20240126t2104
+      sizeBytes: 23906064
+    - names:
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdm@sha256:5b5eb703149c0c210d8b52c904d2f1cbe5563e297e8975a1cbc9d8b4575ce110
+      - linuxgeneva-microsoft.azurecr.io/distroless/genevamdm:2.2023.1027.1417-08a588-20231027t1613
+      sizeBytes: 23590317
+    nodeInfo:
+      architecture: amd64
+      bootID: f84d54b4-f805-47f7-85af-9230e55994eb
+      containerRuntimeVersion: containerd://1.7.6-k3s1.27
+      kernelVersion: 5.15.145.2-1.cm2
+      kubeProxyVersion: v1.27.6+k3s-
+      kubeletVersion: v1.27.6+k3s-
+      machineID: f36dc13345e14dd2a246dfdef28c983d
+      operatingSystem: linux
+      osImage: CBL-Mariner/Linux
+      systemUUID: f3e5f1df-062d-461a-833f-c8025fad328e
+kind: NodeList
+metadata:
+  resourceVersion: '867498'

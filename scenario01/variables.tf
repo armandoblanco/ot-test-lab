@@ -1,16 +1,16 @@
 variable "location" {
   description = "Azure location for resources"
-  default     = "East US"
+  default     = "East US 2"
 }
 
 variable "rg_controlplane_name" {
   description = "Resource group for Control Plane"
-  default     = "Control-Plane-SCE01"
+  default     = "LAB-Control-Plane-SCE01"
 }
 
 variable "rg_sce01_name" {
   description = "Resource group for SCE01"
-  default     = "SCE01-Location01"
+  default     = "LAB-SCE01-Location01"
 }
 
 variable "vnet_controlplane_name" {
@@ -55,10 +55,20 @@ variable "vm_admin_password" {
 
 variable "ubuntu_vm_size" {
   description = "Size of the Ubuntu virtual machines"
-  default     = "Standard_B2s"
+  default     = "Standard_D2_v5"
 }
 
 variable "windows_vm_size" {
   description = "Size of the Windows virtual machines"
-  default     = "Standard_B2ms"
+  default     = "Standard_D2_v5"
+}
+
+variable "dmzlan_bastion_subnet_prefix" {
+  description = "Subnet prefix for Bastion in DMZ LAN VNET"
+  default     = "10.0.3.0/26"
+}
+
+variable "dmzlan_firewall_subnet_prefix" {
+  description = "Subnet prefix for Azure Firewall in DMZ LAN VNET"
+  default     = "10.0.3.64/26"
 }

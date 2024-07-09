@@ -39,25 +39,25 @@ resource "azurerm_virtual_network" "dmzlan" {
 }
 
 # Subnets in VNET DMZ LAN
-resource "azurerm_subnet" "dmzlan_bastion" {
-  name                 = "bastion"
+resource "azurerm_subnet" "AzureBastionSubnet" {
+  name                 = "AzureBastionSubnet"
   resource_group_name  = azurerm_resource_group.sce01.name
   virtual_network_name = azurerm_virtual_network.dmzlan.name
-  address_prefixes     = ["10.0.3.0/27"]
+  address_prefixes     = ["10.0.3.0/26"]  # 64 addresses
 }
 
-resource "azurerm_subnet" "dmzlan_layer3" {
-  name                 = "layer3-firewall"
+resource "azurerm_subnet" "dmzlan_firewall" {
+  name                 = "azurefirewall"
   resource_group_name  = azurerm_resource_group.sce01.name
   virtual_network_name = azurerm_virtual_network.dmzlan.name
-  address_prefixes     = ["10.0.3.32/27"]
+  address_prefixes     = ["10.0.3.64/26"]
 }
 
-resource "azurerm_subnet" "dmzlan_main" {
-  name                 = "dmz"
+resource "azurerm_subnet" "dmzlan_vmlayer3" {
+  name                 = "vm-layer3"
   resource_group_name  = azurerm_resource_group.sce01.name
   virtual_network_name = azurerm_virtual_network.dmzlan.name
-  address_prefixes     = ["10.0.3.64/24"]
+  address_prefixes     = ["10.0.3.128/25"]
 }
 
 # VNET Layer 2
@@ -98,7 +98,7 @@ resource "azurerm_network_security_group" "nsg_layer2" {
 }
 
 # Azure Firewall
-resource "azurerm_firewall" "AZFW_Hub" {
+resource "azurerm_firewall" "azfw-l01" {
   name                = "azfw-l01"
   location            = azurerm_resource_group.sce01.location
   resource_group_name = azurerm_resource_group.sce01.name
@@ -143,11 +143,12 @@ resource "azurerm_virtual_network_peering" "controlplane_to_dmzlan" {
 locals {
   ubuntu_vms = [
     { name = "SCE01VM01", ip_configuration_name = "ipconfig1" },
-    { name = "SCE01VM02", ip_configuration_name = "ipconfig2" },
-    { name = "SCE01VM03", ip_configuration_name = "ipconfig3" },
-    { name = "SCE01VM04", ip_configuration_name = "ipconfig4" },
-    { name = "SCE01VM05", ip_configuration_name = "ipconfig5" },
-    { name = "SCE01VM06", ip_configuration_name = "ipconfig6" }
+    { name = "SCE01VM02", ip_configuration_name = "ipconfig2" }
+    #,
+    #{ name = "SCE01VM03", ip_configuration_name = "ipconfig3" },
+    #{ name = "SCE01VM04", ip_configuration_name = "ipconfig4" },
+    #{ name = "SCE01VM05", ip_configuration_name = "ipconfig5" },
+    #{ name = "SCE01VM06", ip_configuration_name = "ipconfig6" }
   ]
 }
 
@@ -159,7 +160,7 @@ resource "azurerm_network_interface" "dmzlan_nics" {
 
   ip_configuration {
     name                          = local.ubuntu_vms[count.index].ip_configuration_name
-    subnet_id                     = azurerm_subnet.dmzlan_main.id
+    subnet_id                     = azurerm_subnet.dmzlan_vmlayer3.id
     private_ip_address_allocation = "Dynamic"
   }
 }
@@ -181,8 +182,8 @@ resource "azurerm_virtual_machine" "dmzlan_ubuntu_vms" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "22.04-LTS"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"
     version   = "latest"
   }
 
@@ -216,12 +217,4 @@ resource "azurerm_network_interface" "layer2_nics" {
     subnet_id                     = azurerm_subnet.layer2_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-}
-
-
-# Event Grid
-resource "azurerm_eventgrid_topic" "example" {
-  name                = "example-eventgrid-topic"
-  resource_group_name = azurerm_resource_group.controlplane.name
-  location            = azurerm_resource_group.controlplane.location
 }
